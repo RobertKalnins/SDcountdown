@@ -73,7 +73,7 @@ h1 {
 .poster-img {
     display: block;
     margin: 0 auto 2rem auto;
-    max-height: 60vh;                /* Limits height */
+    max-height: 50vh;                /* Limits height */
     max-width: 90vw;                 /* Responsive width */
     width: auto;                     /* Maintain aspect ratio */
     height: auto;
@@ -82,7 +82,81 @@ h1 {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4); /* Smooth shadow */
 }
 
+.audio-controls {
+    margin-bottom: 10px;
+    text-align: center;
+    background: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
 
+.volume-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.volume-control label {
+    color: #666;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+.volume-control input[type="range"] {
+    width: 60px;
+    height: 2px;
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.05);
+    border-radius: 1px;
+    outline: none;
+    box-shadow: none;
+    margin: 0;
+    transition: background 0.2s;
+}
+
+.volume-control input[type="range"]:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 8px;
+    height: 8px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity 0.2s, background 0.2s;
+    border: none;
+}
+
+.volume-control input[type="range"]:hover::-webkit-slider-thumb {
+    opacity: 0.7;
+    background: #fff;
+}
+
+.volume-control input[type="range"]::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.3;
+    border: none;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.volume-control input[type="range"]:hover::-moz-range-thumb {
+    opacity: 0.7;
+    background: #fff;
+}
 
 @media (max-width: 768px) {
     .countdown {

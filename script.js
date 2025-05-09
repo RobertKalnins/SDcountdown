@@ -27,4 +27,37 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 
 // Initial update
-updateCountdown(); 
+updateCountdown();
+
+// Audio controls
+const bgMusic = document.getElementById('bgMusic');
+const volumeSlider = document.getElementById('volumeSlider');
+
+// Set initial volume (30%)
+bgMusic.volume = 0.3;
+
+// Handle volume changes
+volumeSlider.addEventListener('input', (e) => {
+    const volume = e.target.value / 100;
+    bgMusic.volume = volume;
+});
+
+// Function to start audio
+function startAudio() {
+    bgMusic.play().then(() => {
+        console.log("Audio started successfully");
+    }).catch(error => {
+        console.log("Audio playback failed:", error);
+    });
+}
+
+// Try to start audio when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Try to play on any user interaction
+    document.body.addEventListener('click', () => {
+        startAudio();
+    }, { once: true });
+    
+    // Also try to play immediately
+    startAudio();
+}); 
